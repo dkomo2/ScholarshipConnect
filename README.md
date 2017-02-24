@@ -35,6 +35,7 @@ Search for Scholarships that apply to SUNY/CUNY Universities
 1. `GET /scholarships`
  * `myDesiredAwardAmount` a Double representing the minimum amount of award a user is searching for
  * `myDesiredProgram` an `AcademicProgram` enum
+ * `mySchoolRank` a `SchoolRank` enum
  * `myGpa` a Double
  * `myIncome` a Double
  * `myLatitude` a Double
