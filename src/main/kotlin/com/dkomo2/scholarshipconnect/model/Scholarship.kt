@@ -1,0 +1,152 @@
+package com.dkomo2.scholarshipconnect.model
+
+import com.dkomo2.scholarshipconnect.data.randomAcademicPrograms
+import com.dkomo2.scholarshipconnect.data.randomSchoolRank
+import java.util.UUID
+import java.util.Random
+import javax.persistence.Entity
+import javax.persistence.Id
+import javax.persistence.ManyToMany
+import javax.persistence.ElementCollection
+import javax.persistence.CollectionTable
+
+/**
+ * Created by david on 2/23/17.
+ */
+
+@Entity
+data class Scholarship(
+        val name: String,
+        val description: String,
+        val awardAmount: Double = (Random().nextDouble() * 123001) + 1000,
+        val minimumGpaRequirement: Double = (Random().nextDouble() * 2) + 2,
+        val maximumIncomeRequirement: Double = (Random().nextDouble() * 100000) + 80000,
+        @ManyToMany
+        val applicableSchools: Set<School>,
+        @ElementCollection
+        @CollectionTable
+        val applicableAcademicPrograms: Set<AcademicProgram> = randomAcademicPrograms(),
+        @ElementCollection
+        @CollectionTable
+        val applicableSchoolRanks: Set<SchoolRank> = randomSchoolRank(),
+        val mustBeInState: Boolean = Random().nextBoolean(),
+        @Id
+        val scholarshipId: String = UUID.randomUUID().toString()
+)
+
+enum class SchoolRank {
+    INCOMING_FRESHMAN,
+    RISING_SOPHOMORE,
+    RISING_JUNIOR,
+    RISING_SENIOR,
+    GRADUATE
+}
+
+enum class AcademicProgram {
+    ACCOUNTING,
+    ADAPTED_AQUATICS,
+    AFRICANA_STUDIES,
+    AMERICAN_STUDIES,
+    ANTHROPOLOGY,
+    APPLIED_MATHEMATICS_AND_STATISTICS,
+    ART_HISTORY_AND_CRITICISM,
+    ART_STUDIO,
+    ASIAN_AND_ASIAN_AMERICAN_STUDIES,
+    ASTRONOMY_AND_PLANETARY_SCIENCES,
+    ATHLETIC_TRAINING,
+    ATMOSPHERIC_AND_OCEANIC_SCIENCES,
+    BIOCHEMISTRY,
+    BIOENGINEERING,
+    BIOLOGY,
+    BIOMATERIALS,
+    BIOMEDICAL_ENGINEERING,
+    BUSINESS_MANAGEMENT,
+    CHEMICAL_AND_MOLECULAR_ENGINEERING,
+    CHEMISTRY,
+    CHINA_STUDIES,
+    CINEMA_AND_CULTURAL_STUDIES,
+    CIVIL_ENGINEERING,
+    CLASSICAL_CIVILIZATION,
+    CLINICAL_LABORATORY_SCIENCES,
+    COASTAL_ENVIRONMENTAL_STUDIES,
+    COMPARATIVE_LITERATURE,
+    COMPUTER_ENGINEERING,
+    COMPUTER_SCIENCE,
+    CREATIVE_WRITING_AND_LITERATURE,
+    DANCE,
+    DIGITAL_ARTS,
+    EARTH_AND_SPACE_SCIENCES,
+    ECONOMICS,
+    ECOSYSTEMS_AND_HUMAN_IMPACT,
+    EDUCATION_AND_TEACHER_CERTIFICATION,
+    ELECTRICAL_ENGINEERING,
+    ENERGY_SCIENCE_TECHNOLOGY_AND_POLICY,
+    ENGINEERING_CHEMISTRY,
+    ENGINEERING_COMPOSITES,
+    ENGINEERING_SCIENCE,
+    ENGINEERING_AND_TECHNOLOGY_ENTREPRENEURSHIP,
+    ENGLISH,
+    ENTREPRENEURSHIP,
+    ENVIRONMENTAL_DESIGN_POLICY_AND_PLANNING,
+    ENVIRONMENTAL_ENGINEERING,
+    ENVIRONMENTAL_HUMANITIES,
+    ENVIRONMENTAL_STUDIES,
+    ETHNOMUSICOLOGY,
+    EUROPEAN_STUDIES,
+    FRENCH_LANGUAGE_AND_LITERATURE,
+    GEOLOGY,
+    GEOSPATIAL_SCIENCE,
+    GERMAN_LANGUAGE,
+    HEALTH_SCIENCE,
+    HEALTH_AND_WELLNESS,
+    HELLENIC_STUDIES,
+    HISPANIC_LANGUAGES_AND_LITERATURE,
+    HISTORY,
+    HUMAN_EVOLUTIONARY_BIOLOGY,
+    INFORMATION_SYSTEMS,
+    INTERNATIONAL_STUDIES,
+    ITALIAN_AMERICAN_STUDIES,
+    ITALIAN_STUDIES,
+    JAPANESE_STUDIES,
+    JAZZ_STUDIES,
+    JOURNALISM,
+    JUDAIC_STUDIES,
+    KOREAN_STUDIES,
+    LATIN_AMERICAN_AND_CARIBBEAN_STUDIES,
+    LEADERSHIP_DEVELOPMENT,
+    LIBERAL_ARTS,
+    LINGUISTICS,
+    MANUFACTURING_ENGINEERING,
+    MARINE_SCIENCES,
+    MARINE_VERTEBRATE_BIOLOGY,
+    MATERIALS_SCIENCE,
+    MATHEMATICS,
+    MECHANICAL_ENGINEERING,
+    MEDIA_ARTS,
+    MEDIEVAL_STUDIES,
+    MIDDLE_EASTERN_STUDIES,
+    MULTIDISCIPLINARY_STUDIES,
+    MUSIC,
+    MUSIC_THEORY,
+    MUSIC_AND_TECHNOLOGY,
+    NANOTECHNOLOGY_STUDIES,
+    NURSING,
+    OPTICS,
+    PHARMACOLOGY,
+    PHILOSOPHY,
+    PHYSICS,
+    POLITICAL_SCIENCE,
+    PSYCHOLOGY,
+    RELIGIOUS_STUDIES,
+    RESPIRATORY_CARE,
+    RUSSIAN_STUDIES,
+    SOCIAL_WORK,
+    SOCIOLOGY,
+    SOUTH_ASIAN_STUDIES,
+    SPANISH_LANGUAGE_AND_LITERATURE,
+    SUSTAINABILITY_STUDIES,
+    TECHNOLOGICAL_SYSTEMS_MANAGEMENT,
+    THEATRE_ARTS,
+    WOMENS_AND_GENDER_STUDIES,
+    WRITING_AND_RHETORIC
+}

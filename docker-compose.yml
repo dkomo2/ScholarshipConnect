@@ -1,0 +1,7 @@
+networks: {}
+services:
+  backend:
+    build: .
+    ports:
+    - "3000:8080"
+version: "2"
