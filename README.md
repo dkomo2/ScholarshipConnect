@@ -87,7 +87,7 @@ Example Value:
     "description": "Sample Description",
     "maximumIncomeRequirement": 80000,
     "minimumGpaRequirement": 3.5,
-    "mustBeInstate": false,
+    "mustBeInState": false,
     "name": "Sample Scholarship",
     "scholarshipId": "123e4567-e89b-12d3-a456-426655440000"
   }
