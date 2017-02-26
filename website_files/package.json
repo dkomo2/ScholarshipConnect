@@ -1,0 +1,14 @@
+{
+  "name": "ScholarshipConnect",
+  "version": "0.0.1",
+  "description": "ScholarshipConnect Node.js Server",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "David Komorowski <dkomo2@gmail.com>",
+  "devDependencies": {
+    "express": "^4.14.1"
+  }
+}

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+        <style>
+                body {
+                    background: #0064AF;
+                    color:white;
+                }
+                table, th , td {
+                        border: 1px solid grey;
+                        border-collapse: collapse;
+                        padding: 5px;
+                }
+                table tr:nth-child(odd) {
+                        background-color: #0064DF;
+                }
+                table tr:nth-child(even) {
+                        background-color: #7556ED;
+                }
+        </style>
+        <head>
+                <title>SUNY/CUNY git Scholarship Connect</title>
+                <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+                <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-route.min.js"></script>
+                <script src="frontEnd.js"></script>
+        </head>
+        <body vlink="lightgrey" link="white">
+                <div>
+                <a href="https://www.suny.edu/"><img src="images/SUNY-logo-white-blue.jpg" alt="SUNY" style="float:left;width:177px;height:87px;"></a>
+                <a href="https://www.cuny.edu/"><img src="images/CUNY-LOGO.png" alt="CUNY" style="float:left;width:177px;height:87px;"></a>
+                <br/>
+                <h1>Scholarship Connect</h1>
+                <hr/>
+                </div>
+                <div ng-app="frontEnd" ng-controller="scholarshipsController" ng-view=""></div>
+                <hr/>
+                <div>
+                <p>Developed by <a href="https://www.linkedin.com/in/davidakomorowskiii/">David A Komorowski II</a> of Stony Brook University
+                <p><a href="mailto:dkomo2@gmail.com?Subject=Scholarship%20Connect"">David's Personal GMail</a></p>
+                <p><a href="mailto:dkomorowski@cs.stonybrook.edu?Subject=Scholarship%20Connect"">David's Stony Brook GMail</a></p>
+                
+                <p><a href="http://localhost:3000/swagger-ui.html">Checkout the Swagger Docs for the backend of this webapp</a></p>
+                </div>
+        </body>
+</html>

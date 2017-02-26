@@ -1,0 +1,33 @@
+<table>
+        <tr>
+                <th>Scholarship Id</th>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Award Amount</th>
+                <th>Minimum GPA Requirement</th>
+                <th>Maximum Income Requirement</th>
+                <th>Must Be In State</th>
+                <th>Applicable Schools</th>
+                <th>Applicable School Ranks</th>
+                <th>Applicable Academic Programs</th>
+        </tr>
+
+        <tr ng-repeat="x in scholarships">
+                <td>{{ x.scholarshipId }}</td>
+                <td>{{ x.name }}</td>
+                <td>{{ x.description }}</td>
+                <td>{{ x.awardAmount }}</td>
+                <td>{{ x.minimumGpaRequirement }}</td>
+                <td>{{ x.maximumIncomeRequirement }}</td>
+                <td>{{ x.mustBeInState }}</td>
+                <td>
+                        <p ng-repeat="school in x.applicableSchools">{{ school.name }}</p>
+                </td>
+                <td>
+                        <p ng-repeat="rank in x.applicableSchoolRanks">{{ rank }}</p>
+                </td>
+                <td>
+                        <p ng-repeat="program in x.applicableAcademicPrograms">{{ program }}</p>
+                </td>
+        </tr>
+</table>
