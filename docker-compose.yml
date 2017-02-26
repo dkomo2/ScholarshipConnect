@@ -4,4 +4,17 @@ services:
     build: .
     ports:
     - "3000:8080"
+    expose:
+    - "8080"
+  frontend:
+    depends_on:
+    - backend
+    build: ./website_files/.
+    entrypoint:
+    - node
+    - /website_files/server.js
+    volumes:
+    - ./website_files:/website_files
+    ports:
+    - "80:5000"
 version: "2"
