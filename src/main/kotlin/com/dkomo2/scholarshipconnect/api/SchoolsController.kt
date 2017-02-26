@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.*
  * Created by david on 2/23/17.
  */
 
+@CrossOrigin
 @RestController
 @RequestMapping("schools")
 @Api(value = "Schools")
