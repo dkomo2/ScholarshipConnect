@@ -18,9 +18,9 @@ import javax.persistence.CollectionTable
 data class Scholarship(
         val name: String,
         val description: String,
-        val awardAmount: Double = (Random().nextDouble() * 123001) + 1000,
-        val minimumGpaRequirement: Double = (Random().nextDouble() * 2) + 2,
-        val maximumIncomeRequirement: Double = (Random().nextDouble() * 100000) + 80000,
+        val awardAmount: Double = Math.round(((Random().nextDouble() * 123001) + 1000)*100)/100.00,
+        val minimumGpaRequirement: Double = Math.round(((Random().nextDouble() * 2) + 2)*100)/100.00,
+        val maximumIncomeRequirement: Double = Math.round(((Random().nextDouble() * 100000) + 80000)*100)/100.00,
         @ManyToMany
         val applicableSchools: Set<School>,
         @ElementCollection
