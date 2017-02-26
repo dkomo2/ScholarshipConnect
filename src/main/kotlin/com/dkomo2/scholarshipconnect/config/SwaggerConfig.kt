@@ -30,11 +30,11 @@ open class SwaggerConfig {
 
     private fun apiInfo(): ApiInfo {
         val apiInfo = ApiInfo(
-                "Scholarship Connect",
-                "",
+                "SUNY/CUNY Scholarship Connect",
+                "APIs for Scholarship Connect App",
                 "v0.0.1",
                 "",
-                Contact("", "", ""),
+                Contact("David A Komorowski II", "https://www.linkedin.com/in/davidakomorowskiii", "dkomo2@gmail.com"),
                 "",
                 "")
         return apiInfo
