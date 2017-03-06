@@ -23,16 +23,68 @@
                 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-route.min.js"></script>
                 <script src="frontEnd.js"></script>
         </head>
-        <body vlink="lightgrey" link="white">
+        <body vlink="lightgrey" link="white" ng-app="frontEnd" ng-controller="scholarshipsController">
                 <div>
                 <a href="https://www.suny.edu/"><img src="images/SUNY-logo-white-blue.jpg" alt="SUNY" style="float:left;width:177px;height:87px;"></a>
                 <a href="https://www.cuny.edu/"><img src="images/CUNY-LOGO.png" alt="CUNY" style="float:left;width:177px;height:87px;"></a>
                 <br/>
                 <h1>Scholarship Connect</h1>
                 <hr/>
-                </div>
-                <div ng-app="frontEnd" ng-controller="scholarshipsController" ng-view=""></div>
+                <table>
+                        <form>
+                                <tr>
+                                        <th>My Desired Award Amount</th>
+                                        <th>My Desired Program</th>
+                                        <th>My School Rank</th>
+                                        <th>My GPA</th>
+                                        <th>My Income</th>
+                                        <th>My Address</th>
+                                        <th>Desired Radius (in Miles)</th>
+                                        <th>Must Be In State</th>
+                                </tr>
+                                <tr>
+                                        <td>
+                                                <input type="number" name="myDesiredAwardAmount" value="6500.50">
+                                        </td>
+                                        <td>
+                                                <input list="programs" name="myDesiredProgram" value="COMPUTER_SCIENCE">
+                                                <dataList id="programs">
+                                                        <option ng-repeat="y in academicPrograms" value={{y}}></option>
+                                                </dataList>
+                                        </td>
+                                        <td>
+                                                <input list="schoolRanks" name="mySchoolRank" value="RISING_SOPHOMORE">
+                                                <dataList id="schoolRanks">
+                                                        <option ng-repeat="z in schoolRanks" value={{z}}></option>
+                                                </dataList>
+                                        </td>
+                                        <td>
+                                                <input type="number" name="myGpa" value="3.5">
+                                        </td>
+                                        <td>
+                                                <input type="number" name="myIncome" value="20000">
+                                        </td>
+                                        <td>
+                                                <input type="text" name="myAddress" value="1600 Pennsylvania Avenue, Washington D.C. 20001">
+                                        </td>
+                                        <td>
+                                                <input type="number" name="myDesiredRadiusInMiles" value = "1000.50">
+                                        </td>
+                                        <td>
+                                                        <input type="radio" name="mustBeInState" value="true"> True
+                                                        <input type="radio" name="mustBeInState" value="false" checked> False
+                                        </td>
+                                </tr>
+                                <tr>
+                                        <td>
+                                                <input type="button" value="Search">
+                                        </td>
+                                </tr>
+                        </form>
+                </table>
                 <hr/>
+                </div>
+                <div ng-view=""></div>
                 <div>
                 <p>Developed by <a href="https://www.linkedin.com/in/davidakomorowskiii/">David A Komorowski II</a> of Stony Brook University
                 <p><a href="mailto:dkomo2@gmail.com?Subject=Scholarship%20Connect"">David's Personal GMail</a></p>

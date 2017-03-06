@@ -7,40 +7,67 @@ app.config(function($routeProvider) {
         }).otherwise({ redirectTo: '/'});
 });
 
-app.factory('scholarshipService',
-        function scholarshipService($http, $q) {
+app.factory('scholarshipConnectService',
+        function scholarshipConnectService($http, $q) {
                 function getScholarships() {
-                              return $http.get('http://localhost:3000/scholarships/').success(function(data) {
-                                      service.scholarships = data;
-                              });
-                      }
+                        return $http.get('http://localhost:3000/scholarships/').success(function(data) {
+                                service.scholarships = data;
+                        });
+                }
+                function getAcademicPrograms() {
+                        return $http.get('http://localhost:3000/academicPrograms').success(function(data) {
+                                service.academicPrograms = data;
+                        });
+                }
+                function getSchoolRanks() {
+                        return $http.get('http://localhost:3000/schoolRanks').success(function(data) {
+                                service.schoolRanks = data;
+                        });
+                }
                 var service = {
                         scholarships: [],
-                        getScholarships: getScholarships
+                        academicPrograms: [],
+                        schoolRanks: [],
+                        getScholarships: getScholarships,
+                        getAcademicPrograms: getAcademicPrograms,
+                        getSchoolRanks: getSchoolRanks
                 };
                 return service;
         });
 
-app.controller('scholarshipsController', function($scope, scholarshipService) {
-        $scope.scholarships = function() {
-                scholarshipService.getScholarships().success(function(scholarships) {
-                        return scholarships;
-                });
-        };
-        var vm = this;
-        vm.scholarships = [];
-        
-        vm.getScholarships = function() {
-                scholarshipService.getScholarships()
+app.controller('scholarshipsController', function($scope, scholarshipConnectService) {
+        this.getScholarships = function() {
+                scholarshipConnectService.getScholarships()
                 .success(function(scholarships) {
                         $scope.scholarships = scholarships;
-                        vm.scholarships = scholarships;
-                        console.log('scholarships returned to controller', vm.scholarships);
+                        console.log('scholarships returned to controller', scholarships);
                 })
                 .error(function(data) {
                         console.log('scholarships retrieval failed.');
                 });
         };
+        this.getAcademicPrograms = function() {
+                scholarshipConnectService.getAcademicPrograms()
+                .success(function(academicPrograms) {
+                        $scope.academicPrograms = academicPrograms;
+                        console.log('academicPrograms returned to controller', academicPrograms);
+                })
+                .error(function(data) {
+                        console.log('academicPrograms retrieval failed.');
+                });
+        };
+        this.getSchoolRanks = function() {
+                scholarshipConnectService.getSchoolRanks()
+                .success(function(schoolRanks) {
+                        $scope.schoolRanks = schoolRanks;
+                        console.log('schoolRanks returned to controller', schoolRanks);
+                })
+                .error(function(data) {
+                        console.log('schoolRanks retrieval failed.');
+                });
+        };
         
-        vm.getScholarships();
+        this.getScholarships();
+        this.getAcademicPrograms();
+        this.getSchoolRanks();
 });
