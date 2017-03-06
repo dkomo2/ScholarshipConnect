@@ -21,7 +21,7 @@
                 <td>{{ x.maximumIncomeRequirement }}</td>
                 <td>{{ x.mustBeInState }}</td>
                 <td>
-                        <p ng-repeat="school in x.applicableSchools">{{ school.name }}</p>
+                        <p ng-repeat="school in x.applicableSchools"><a href={{school.url}}>{{ school.name }}</a></p>
                 </td>
                 <td>
                         <p ng-repeat="rank in x.applicableSchoolRanks">{{ rank }}</p>
@@ -31,3 +31,4 @@
                 </td>
         </tr>
 </table>
+<hr/>

@@ -13,6 +13,7 @@ data class School(
         val name: String,
         val latitude: Double,
         val longitude: Double,
+        val url : String,
         @Id
         val schoolId: String = UUID.randomUUID().toString()
 )

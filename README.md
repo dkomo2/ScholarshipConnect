@@ -43,9 +43,9 @@ Search for Scholarships that apply to SUNY/CUNY Universities
 5. If you change code, rebuild the project you changed, then run `docker-compose up --build` or `docker-compose up -d --build` to rebuild the respective docker image
 
 ##Frontend Features
-Frontend is simple for now. Just executes a `GET /scholarships` call to the backend and displays the Scholarships in the backend.
+Frontend is simple for now. Just executes a `GET /scholarships` call to the backend and displays the Scholarships it retrieved from the backend.
 
-Backend has much more functionality.
+Backend has much more functionality, like searching based on fields like `myGpa` or `mySchoolRank`. Read the Backend REST Calls section for more information.
 
 ##Backend REST Calls
 
@@ -84,7 +84,8 @@ Example Value:
     "latitude": 40.9257,
     "longitude": -73.1409,
     "name": "State University In a JSON",
-    "schoolId": "123e4567-e89b-12d3-a456-426655440000"
+    "schoolId": "123e4567-e89b-12d3-a456-426655440000",
+    "url": "http://webpage.link.for.school.edu/"
   }
 ]
 ```
@@ -107,7 +108,8 @@ Example Value:
         "latitude": 40.9257,
         "longitude": -73.1409,
         "name": "State University In a JSON",
-        "schoolId": "123e4567-e89b-12d3-a456-426655440000"
+        "schoolId": "123e4567-e89b-12d3-a456-426655440000",
+        "url": "http://webpage.link.for.school.edu/"
       }
     ],
     "awardAmount": 10000,
