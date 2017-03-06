@@ -4,12 +4,16 @@ import com.dkomo2.scholarshipconnect.data.SchoolRepository
 import com.dkomo2.scholarshipconnect.model.distance
 import io.swagger.annotations.Api
 import io.swagger.annotations.ApiOperation
-import org.springframework.web.bind.annotation.*
+import org.springframework.web.bind.annotation.CrossOrigin
+import org.springframework.web.bind.annotation.GetMapping
+import org.springframework.web.bind.annotation.RequestMapping
+import org.springframework.web.bind.annotation.RestController
+import org.springframework.web.bind.annotation.RequestParam
+import org.springframework.web.bind.annotation.PathVariable
 
 /**
  * Created by david on 2/23/17.
  */
-
 @CrossOrigin
 @RestController
 @RequestMapping("schools")
