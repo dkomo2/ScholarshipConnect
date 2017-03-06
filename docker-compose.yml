@@ -7,8 +7,6 @@ services:
     expose:
     - "8080"
   frontend:
-    depends_on:
-    - backend
     build: ./website_files/.
     entrypoint:
     - node
